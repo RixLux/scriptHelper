@@ -1,2 +1,2 @@
 # scriptHelper
-collection of script
+Currently work on Bazzite
