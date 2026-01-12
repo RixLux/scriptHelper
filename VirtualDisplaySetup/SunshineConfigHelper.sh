@@ -38,4 +38,5 @@ echo
 echo "🔹 Undo:"
 echo "/usr/bin/kscreen-doctor \\"
 echo "  output.$PRIMARY.enable \\"
+echo "  output.$VIRTUAL.disable \\"
 echo "  output.$PRIMARY.primary"
