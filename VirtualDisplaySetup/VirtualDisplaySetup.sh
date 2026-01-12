@@ -17,13 +17,10 @@ ensure_bin_suffix() {
 }
 
 
-echo "EDID setup time
+echo "-----EDID setup Helper-----"
 echo "You can:"
 echo "  1) Use the default EDID (Acer XV273K HDMI)"
 echo "  2) Pick your own EDID file"
-echo
-echo "EDID database link:"
-echo "https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data"
 echo
 
 read -p "Choose [1/2] (default: 1): " choice
@@ -31,7 +28,11 @@ choice=${choice:-1}
 
 if [[ "$choice" == "2" ]]; then
     echo
+    echo "EDID Source link:"
+    echo "https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data"
+    echo
     echo "📂 Download an EDID file, then DRAG & DROP it here:"
+
     read -r EDID_PATH
 
     if [[ ! -f "$EDID_PATH" ]]; then
