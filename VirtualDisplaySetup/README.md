@@ -7,7 +7,7 @@ https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c
 [Source Link](https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c)
 ## Currently work on Bazzite with KDE
 
-
+### Lenovo Ideapad
 ```
 Detail:
 Operating System: Bazzite 43
@@ -23,13 +23,31 @@ Manufacturer: LENOVO
 Product Name: 82KU
 System Version: IdeaPad 3 15ALC6
 ```
-![Images](Images/SystemDetail.png)
+![Images](Images/SystemDetailLenovo.png)
+
+### Asus Tuf
+```
+Operating System: Bazzite 43
+KDE Plasma Version: 6.5.4
+KDE Frameworks Version: 6.21.0
+Qt Version: 6.10.1
+Kernel Version: 6.17.7-ba22.fc43.x86_64 (64-bit)
+Graphics Platform: Wayland
+Processors: 12 × 11th Gen Intel® Core™ i5-11400H @ 2.70GHz
+Memory: 16 GiB of RAM (15.3 GiB usable)
+Graphics Processor 1: Intel® UHD Graphics
+Graphics Processor 2: NVIDIA GeForce RTX 2050
+Manufacturer: ASUSTeK COMPUTER INC.
+Product Name: ASUS TUF Gaming F15 FX506HF_FX506HF
+System Version: 1.0
+```
+![Images](Images/SystemDetailAsus.png)
 
 ---
 
 ## Automating Custom EDID + Virtual Display Setup (Bazzite / rpm-ostree)
 
-## You can skip trivialize 1-5 
+## You can trivialize step 1-5 
 **if you decide to use this [script](VirtualDisplaySetup.sh)**
 
 ### 1. Obtain a Desired EDID Binary
@@ -45,15 +63,15 @@ Pick the EDID that matches your desired resolution and refresh rate.
 
 ---
 
-### 2. Convert EDID Using wxedid
+### 2. Rename EDID 
 
-Open **wxedid**, load the chosen EDID data, then save it as:
+rename EDID data as long as it end as filename.bin, then save it as(for Example):
 
 ```text
 edid.bin
 ```
 
->  wxedid does not currently support full CLI automation, so this step is manual.
+>  WARNING : the name could be whatever but you need to adjust the following command afterward
 
 ---
 
@@ -98,11 +116,14 @@ After logging back into **Bazzite**:
 1. Right-click on the desktop
 2. Open **Display Configuration**
 3. You should now see an **additional display**
-4. Set the virtual display to **Mirror / Replica** of your primary display
+4. Adjust it as you please
 
 like this image:
 ![Images](Images/6Result1.png)
 ![Images](Images/6Result2.png)
+
+![Images](Images/ExampleBeforeAsus.png)
+![Images](Images/ExampleAfterAsus.png)
 
 ---
 
@@ -134,7 +155,8 @@ Output: HDMI-A-1
 Just in case if it is not active, just start it
 
 ![Images](Images/8Sunshine2.png)  
-Then you should see it in the tray as a icon
+Then you should see it in the tray as a icon  
+
 1. Right-click the **Sunshine tray icon** <br>![Images](Images/8Sunshine3.png)
 2. Select **Open Sunshine**<br>![Images](Images/8Sunshine4.png)
 3. Go to **Configuration → General**<br>![Images](Images/8Sunshine5.png)
@@ -169,6 +191,7 @@ Disable the virtual display and re-enable your primary display(s):
 ```bash
 /usr/bin/kscreen-doctor \
   output.eDP-1.enable \
+  output.HDMI-A-1.disable \
   output.eDP-1.primary
 ```
 
