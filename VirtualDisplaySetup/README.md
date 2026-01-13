@@ -3,11 +3,20 @@
 
 Inspiration that made me do this:
 
-```text
+```markdown
 https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c
 ```
 
-[Source Link](https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c)
+[Source Link](https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c)  
+
+### Another way to create virtual Display
+
+```markdown
+https://docs.bazzite.gg/Advanced/custom_resolution/?h=custom
+```
+
+[Bazzite-custom-resolution-guide](https://docs.bazzite.gg/Advanced/custom_resolution/?h=custom)
+
 
 ---
 
@@ -68,7 +77,7 @@ You can **trivialize steps 1–5**
 
 Download an EDID from the LinuxTV repository:
 
-```text
+```markdown
 https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data
 ```
 
@@ -315,7 +324,7 @@ I recommend **Artemis** (Moonlight fork) due to better features and control.
 
 **Source:**
 
-```text
+```markdown
 https://github.com/ClassicOldSong/moonlight-android
 ```
 
@@ -323,7 +332,7 @@ https://github.com/ClassicOldSong/moonlight-android
 
 **Releases:**
 
-```text
+```markdown
 https://github.com/ClassicOldSong/moonlight-android/releases
 ```
 
