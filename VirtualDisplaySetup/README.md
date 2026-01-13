@@ -1,15 +1,21 @@
+
 # Virtual Display Setup
- 
-Inpiration that made me do this :
-```html
+
+Inspiration that made me do this:
+
+```text
 https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c
 ```
+
 [Source Link](https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c)
-## Currently work on Bazzite with KDE
+
+---
+
+## Currently Works on Bazzite with KDE (Wayland)
 
 ### Lenovo Ideapad
+
 ```
-Detail:
 Operating System: Bazzite 43
 KDE Plasma Version: 6.5.4
 KDE Frameworks Version: 6.21.0
@@ -23,9 +29,13 @@ Manufacturer: LENOVO
 Product Name: 82KU
 System Version: IdeaPad 3 15ALC6
 ```
+
 ![Images](Images/SystemDetailLenovo.png)
 
-### Asus Tuf
+---
+
+### Asus TUF
+
 ```
 Operating System: Bazzite 43
 KDE Plasma Version: 6.5.4
@@ -41,41 +51,47 @@ Manufacturer: ASUSTeK COMPUTER INC.
 Product Name: ASUS TUF Gaming F15 FX506HF_FX506HF
 System Version: 1.0
 ```
+
 ![Images](Images/SystemDetailAsus.png)
 
 ---
 
 ## Automating Custom EDID + Virtual Display Setup (Bazzite / rpm-ostree)
 
-## You can trivialize step 1-5 
-**if you decide to use this [script](VirtualDisplaySetup.sh)**
+You can **trivialize steps 1–5**
+**by using this script:**
+[VirtualDisplaySetup.sh](VirtualDisplaySetup.sh)
+
+---
 
 ### 1. Obtain a Desired EDID Binary
 
 Download an EDID from the LinuxTV repository:
 
-```
+```text
 https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data
 ```
-[Edid Source](https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data)
 
-Pick the EDID that matches your desired resolution and refresh rate.
+[EDID Source](https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data)
+
+Pick an EDID matching your desired resolution and refresh rate.
 
 ---
 
-### 2. Rename EDID 
+### 2. Rename the EDID File
 
-rename EDID data as long as it end as filename.bin, then save it as(for Example):
+Rename the EDID file to anything ending with `.bin`, for example:
 
 ```text
 edid.bin
 ```
 
->  WARNING : the name could be whatever but you need to adjust the following command afterward
+> ⚠️ **Warning:**
+> The filename can be anything, but you **must match it** in the kernel arguments later.
 
 ---
 
-### 3. Install EDID Firmware File
+### 3. Install the EDID Firmware File
 
 Create the firmware directory:
 
@@ -83,7 +99,7 @@ Create the firmware directory:
 sudo mkdir -p /usr/local/lib/firmware
 ```
 
-Move the EDID file into it:
+Move the EDID file:
 
 ```bash
 sudo mv ./edid.bin /usr/local/lib/firmware/
@@ -111,14 +127,15 @@ systemctl reboot
 
 ### 6. Configure the Virtual Display
 
-After logging back into **Bazzite**:
+After logging back in:
 
-1. Right-click on the desktop
+1. Right-click the desktop
 2. Open **Display Configuration**
 3. You should now see an **additional display**
-4. Adjust it as you please
+4. Adjust resolution / refresh rate as desired
 
-like this image:
+Example:
+
 ![Images](Images/6Result1.png)
 ![Images](Images/6Result2.png)
 
@@ -127,18 +144,27 @@ like this image:
 
 ---
 
-## You can also triviliaze part 7-9
+## Sunshine Display Automation (Optional)
 
-**by using this [script](SunshineConfigHelper.sh)**  
-> Important : these config is global so it apply to all profile and override it 
+You can also **trivialize steps 7–9**
+by using this script:
+
+[SunshineConfigHelper.sh](SunshineConfigHelper.sh)
+
+> ⚠️ **Important:**
+> This configuration is **global** and applies to all Sunshine profiles.
 
 ![7Script.png](Images/7Script.png)
 
-or automate everything with this
-[AutoSunshineConfigHelper.sh](AutoSunshineConfigHelper.sh)  
+Or automate everything with:
 
-![7autoScript.png](Images/7autoScript.png)  
-> Note: This is only for profile specific setup 
+[AutoSunshineConfigHelper.sh](AutoSunshineConfigHelper.sh)
+
+> ℹ️ This version is **profile-specific**
+
+![7autoScript.png](Images/7autoScript.png)
+
+---
 
 ### 7. Identify the Virtual Display Output ID
 
@@ -148,8 +174,7 @@ Run:
 kscreen-doctor -o | grep Output:
 ```
 
-Look for your virtual display output ID.
-Example:
+Example output:
 
 ```text
 Output: HDMI-A-1
@@ -159,15 +184,20 @@ Output: HDMI-A-1
 
 ### 8. Configure Sunshine Display Switching
 
-![image](Images/8Sunshine1.png)  
-Just in case if it is not active, just start it
+Start Sunshine if it is not already running.
 
-![Images](Images/8Sunshine2.png)  
-Then you should see it in the tray as a icon  
+![Images](Images/8Sunshine1.png)
 
-1. Right-click the **Sunshine tray icon** <br>![Images](Images/8Sunshine3.png)
-2. Select **Open Sunshine**<br>![Images](Images/8Sunshine4.png)
-3. Go to **Configuration → General**<br>![Images](Images/8Sunshine5.png)
+You should see Sunshine in the system tray.
+
+![Images](Images/8Sunshine2.png)
+
+1. Right-click the **Sunshine tray icon**
+   ![Images](Images/8Sunshine3.png)
+2. Select **Open Sunshine**
+   ![Images](Images/8Sunshine4.png)
+3. Go to **Configuration → General**
+   ![Images](Images/8Sunshine5.png)
 4. Click **+ Add** to create:
 
    * A **Do Command**
@@ -179,8 +209,6 @@ Then you should see it in the tray as a icon
 
 #### Do Command (Streaming Start)
 
-Disable primary displays and enable only the virtual display:
-
 ```bash
 /usr/bin/kscreen-doctor \
   output.eDP-1.disable \
@@ -188,13 +216,11 @@ Disable primary displays and enable only the virtual display:
   output.HDMI-A-1.primary
 ```
 
-*(Adjust display IDs as needed)*
+*(Adjust output names if needed)*
 
 ---
 
 #### Undo Command (Streaming End)
-
-Disable the virtual display and re-enable your primary display(s):
 
 ```bash
 /usr/bin/kscreen-doctor \
@@ -205,18 +231,102 @@ Disable the virtual display and re-enable your primary display(s):
 
 ---
 
-> Note: I recommend you to use Artemis as the client since it had more feature compared to regular moonlight
+## Steam Big Picture Mode (Important Note)
 
-**Source for Artemis**
+If you are using **Steam Big Picture Mode**, Sunshine has a limitation:
+
+* Sunshine executes **only one binary**
+* Command chaining (`;`, `&&`, `sh -c`) **does not work**
+* Steam Big Picture may remain open after disconnecting
+
+### Recommended Solution: Wrapper Script
+
+Create a script that Sunshine can execute as a single file.  
+OR just use this [sunshine-undo-steam.sh](sunshine-undo-steam.sh)  
+
+**Adjust SCript location as you please**
+> This is only an example
+
+```bash
+nano ~/sunshine-undo-steam.sh
 ```
+
+Paste:
+
+```bash
+#!/bin/bash
+
+# Restore internal display
+/usr/bin/kscreen-doctor \
+  output.eDP-1.enable \
+  output.HDMI-A-1.disable \
+  output.eDP-1.primary
+
+# Allow KWin to settle
+sleep 0.5
+
+# Close Steam Big Picture (non-blocking)
+setsid steam steam://close/bigpicture >/dev/null 2>&1 &
+```
+
+## Optional: Fully Exit Steam (Alternative)
+
+If you prefer Steam to exit completely after streaming, replace the last line in the script with:
+
+```bash
+steam -shutdown &
+```
+
+Or, more aggressively:
+
+```bash
+pkill -f steamwebhelper &
+```
+
+Only use this if you understand the side effects.
+
+---
+
+Make it executable:
+
+```bash
+chmod +x ~/sunshine-undo-steam.sh
+```
+
+Then set **Sunshine Undo Command** to:
+
+```text
+/home/USERNAME/sunshine-undo-steam.sh
+```
+
+Replace `USERNAME` with your actual username.  
+Like this
+```
+/home/awchan/Tool/Script/scriptHelper/VirtualDisplaySetup/sunshine-undo-steam.sh
+```
+![10Steam1.png](Images/10Steam1.png)
+![10Steam2.png](Images/10Steam2.png)
+
+---
+
+## Client Recommendation
+
+I recommend **Artemis** (Moonlight fork) due to better features and control.
+
+**Source:**
+
+```text
 https://github.com/ClassicOldSong/moonlight-android
 ```
 
 [Artemis Source](https://github.com/ClassicOldSong/moonlight-android)
 
+**Releases:**
 
-**Direct Download Client LInk**
-```
+```text
 https://github.com/ClassicOldSong/moonlight-android/releases
 ```
-[Artemis(Android Only)](https://github.com/ClassicOldSong/moonlight-android/releases)
+
+[Artemis (Android Only)](https://github.com/ClassicOldSong/moonlight-android/releases)
+
+---
