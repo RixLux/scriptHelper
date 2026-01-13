@@ -1,6 +1,6 @@
 # Virtual Display Setup
-
-Source :
+ 
+Inpiration that made me do this :
 ```html
 https://gist.github.com/iamthenuggetman/6d0884954653940596d463a48b2f459c
 ```
@@ -130,7 +130,15 @@ like this image:
 ## You can also triviliaze part 7-9
 
 **by using this [script](SunshineConfigHelper.sh)**  
-![image](Images/7Script.png)
+> Important : these config is global so it apply to all profile and override it 
+
+![7Script.png](Images/7Script.png)
+
+or automate everything with this
+[AutoSunshineConfigHelper.sh](AutoSunshineConfigHelper.sh)  
+
+![7autoScript.png](Images/7autoScript.png)  
+> Note: This is only for profile specific setup 
 
 ### 7. Identify the Virtual Display Output ID
 
@@ -197,3 +205,18 @@ Disable the virtual display and re-enable your primary display(s):
 
 ---
 
+> Note: I recommend you to use Artemis as the client since it had more feature compared to regular moonlight
+
+**Source for Artemis**
+```
+https://github.com/ClassicOldSong/moonlight-android
+```
+
+[Artemis Source](https://github.com/ClassicOldSong/moonlight-android)
+
+
+**Direct Download Client LInk**
+```
+https://github.com/ClassicOldSong/moonlight-android/releases
+```
+[Artemis(Android Only)](https://github.com/ClassicOldSong/moonlight-android/releases)
