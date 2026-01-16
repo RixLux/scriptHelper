@@ -10,4 +10,9 @@
 sleep 0.5
 
 # Close Steam Big Picture (non-blocking)
-setsid steam steam://close/bigpicture >/dev/null 2>&1 &
+steam steam://close/bigpicture >/dev/null 2>&1
+
+sleep 2
+
+xdotool search --onlyvisible --class "steam" windowminimize
+
