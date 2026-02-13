@@ -2,10 +2,10 @@
 for Reference
 ### Before :
 
-![before1](https://i.imgur.com/qInbAt4.png)
 
-![before2](https://i.imgur.com/uO9R1Sf.png)
+![before1.png](Images/before1.png)  
 
+![before2.png](Images/before2.png)
 Here is the output shown in the image  
 ```
 awchan@bazzite:/var/home/awchan$ rpm-ostree kargs
@@ -88,10 +88,10 @@ awchan@bazzite:/var/home/awchan$ sudo dmesg | grep amdgpu[sudo] password for awc
 ```
 
 ### After :
-![after1](https://i.imgur.com/kQkDbME.png)
 
-![after2](https://i.imgur.com/dukDUUD.png)
+![after1.png](Images/after1.png)  
 
+![after2.png](Images/after2.png)
 Here is the output that shown in the image :
 
 ```
