@@ -265,34 +265,23 @@ Paste:
 ```bash
 #!/bin/bash
 
-# Restore internal display
+# Restore display
 /usr/bin/kscreen-doctor \
   output.eDP-1.enable \
   output.HDMI-A-1.disable \
   output.eDP-1.primary
 
-# Allow KWin to settle
+# Small delay
 sleep 0.5
 
-# Close Steam Big Picture (non-blocking)
-setsid steam steam://close/bigpicture >/dev/null 2>&1 &
+# Close Steam Big Picture
+steam steam://close/bigpicture >/dev/null 2>&1
+
+sleep 2
+
+xdotool search --onlyvisible --class "steam" windowminimize
+
 ```
-
-## Optional: Fully Exit Steam (Alternative)
-
-If you prefer Steam to exit completely after streaming, replace the last line in the script with:
-
-```bash
-steam -shutdown &
-```
-
-Or, more aggressively:
-
-```bash
-pkill -f steamwebhelper &
-```
-
-Only use this if you understand the side effects.
 
 ---
 
@@ -305,7 +294,7 @@ chmod +x ~/sunshine-undo-steam.sh
 Then set **Sunshine Undo Command** to:
 
 ```text
-/home/USERNAME/sunshine-undo-steam.sh
+/home/USERNAME/path-to/sunshine-undo-steam.sh
 ```
 
 Replace `USERNAME` with your actual username.  

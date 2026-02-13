@@ -4,6 +4,10 @@ set -e
 DEFAULT_EDID_URL="https://git.linuxtv.org/v4l-utils.git/plain/utils/edid-decode/data/acer-xv273k-hdmi1"
 DEFAULT_EDID_NAME="acer-xv273k-hdmi1"
 FW_DIR="/usr/local/lib/firmware"
+# Adjust OUTPUT to suit your setup
+# Check it by typing these into your terminal
+# for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n "${con#*/card?-}: "; cat $p; done
+
 OUTPUT="HDMI-A-1"
 TMP_DIR="$(mktemp -d)"
 cleanup() {
