@@ -240,15 +240,7 @@ You should see Sunshine in the system tray.
 
 ---
 
-## Steam Big Picture Mode (Important Note)
-
-If you are using **Steam Big Picture Mode**, Sunshine has a limitation:
-
-* Sunshine executes **only one binary**
-* Command chaining (`;`, `&&`, `sh -c`) **does not work**
-* Steam Big Picture may remain open after disconnecting
-
-### Recommended Solution: Wrapper Script
+## Steam Big Picture Mode 
 
 Create a script that Sunshine can execute as a single file.  
 OR just use this [sunshine-undo-steam.sh](sunshine-undo-steam.sh)  
@@ -297,7 +289,7 @@ Then set **Sunshine Undo Command** to:
 /home/USERNAME/path-to/sunshine-undo-steam.sh
 ```
 
-Replace `USERNAME` with your actual username.  
+Replace `USERNAME/path-to` with your actual path.  
 Like this
 ```
 /home/awchan/Tool/Script/scriptHelper/VirtualDisplaySetup/sunshine-undo-steam.sh
@@ -309,7 +301,7 @@ Like this
 
 ## Client Recommendation
 
-I recommend **Artemis** (Moonlight fork) due to better features and control.
+I recommend **Artemis** (Moonlight fork) for android due to better features and control otherwise just use moonlight if you don't want to bother with it.
 
 **Source:**
 
