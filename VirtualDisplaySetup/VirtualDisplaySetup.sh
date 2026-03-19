@@ -8,12 +8,38 @@ FW_DIR="/usr/local/lib/firmware"
 # Check it by typing these into your terminal
 # for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n "${con#*/card?-}: "; cat $p; done
 
-OUTPUT="HDMI-A-1"
+# -------- this section
+echo "Listing available display ports..."
+echo "----------------------------------"
+
+mapfile -t PORTS < <(for p in /sys/class/drm/*/status; do
+    con=${p%/status}
+    port_name="${con#*/card?-}"
+    status=$(cat "$p")
+    echo "$port_name ($status)"
+done)
+
+PS3="Select the output to apply the EDID to Disconnected port (enter number): "
+select choice_port in "${PORTS[@]}"; do
+    if [[ -n "$choice_port" ]]; then
+        OUTPUT=$(echo "$choice_port" | awk '{print $1}')
+        echo "Selected: $OUTPUT"
+        break
+    else
+        echo "Invalid selection."
+    fi
+done
+
+echo "----------------------------------"
+# ------- this section
+
+# OUTPUT="HDMI-A-1" <- use these and disable the section above to hardcode it
 TMP_DIR="$(mktemp -d)"
 cleanup() {
     rm -rf "$TMP_DIR"
 }
 trap cleanup EXIT
+# ----------------------------------
 
 ensure_bin_suffix() {
     local name="$1"
@@ -35,7 +61,7 @@ if [[ "$choice" == "2" ]]; then
     echo "EDID Source link:"
     echo "https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data"
     echo
-    echo "📂 Download an EDID file, then DRAG & DROP it here:"
+    echo "Download an EDID file, then DRAG & DROP it here:"
 
     read -r EDID_PATH
 
@@ -59,10 +85,10 @@ else
 fi
 
 echo
-echo "📁 Creating firmware directory..."
+echo "Creating firmware directory..."
 sudo mkdir -p "$FW_DIR"
 
-echo "📦 Installing EDID firmware..."
+echo "Moving EDID firmware..."
 sudo cp "$TMP_DIR/$EDID_NAME" "$FW_DIR/$EDID_NAME"
 
 echo

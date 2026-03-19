@@ -100,7 +100,7 @@ edid.bin
 
 ---
 
-### 3. Install the EDID Firmware File
+### 3. Move the EDID File
 
 Create the firmware directory:
 
