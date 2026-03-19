@@ -7,6 +7,8 @@
     />
 </a>
 
+That is just placeholder, i will add something later idk when tho.
+
 # scriptHelper
 collection of script
 
