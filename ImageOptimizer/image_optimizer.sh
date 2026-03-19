@@ -87,4 +87,4 @@ for img in "$@"; do
   esac
 done
 
-echo "✅ Done. Optimized files in '$OUTPUT_DIR/'"
+echo "Done. Optimized files in '$OUTPUT_DIR/'"

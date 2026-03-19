@@ -16,4 +16,4 @@ OUTPUT_FILE="$(dirname "$INPUT_FILE")/.env.example"
 
 sed 's/=.*$/=/' "$INPUT_FILE" > "$OUTPUT_FILE"
 
-echo "✅ Created: $OUTPUT_FILE"
+echo " Created: $OUTPUT_FILE"

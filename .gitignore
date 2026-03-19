@@ -19,3 +19,14 @@ bin-release/
 
 # IDE
 .idea
+github.url
+github.desktop
+github.txt
+
+
+# --- MkDocs ---
+site/
+*/__pycache__/
+*.pyc
+
+Node
