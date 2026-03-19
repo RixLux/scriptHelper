@@ -83,6 +83,9 @@ https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data
 
 [EDID Source](https://git.linuxtv.org/v4l-utils.git/tree/utils/edid-decode/data)
 
+![Images](Images/LinuxTV.png)
+> click these to download it
+
 Pick an EDID matching your desired resolution and refresh rate.
 
 ---

@@ -33,7 +33,7 @@ done
 echo "----------------------------------"
 # ------- this section
 
-# OUTPUT="HDMI-A-1" <- use these and disable the section above to hardcode it
+# OUTPUT="HDMI-A-1" <- use these and disable the section above to hardcoded it
 TMP_DIR="$(mktemp -d)"
 cleanup() {
     rm -rf "$TMP_DIR"
