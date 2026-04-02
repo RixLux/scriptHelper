@@ -12,11 +12,12 @@ sudo rpm-ostree kargs --editor
 
 the basic is 
 
-- press `i` to edit something
+- press `i` to edit something or go to insert mode
+- press `esc` to go back to normal mode
 - press ctrl + arrow key to navigate
 - `ctrl + w` to delete faster
 - `u` to undo
-- and then type `:` followed by `wq` to save and quit
+- and then type `:` in normal mode followed by `wq` to save and quit
 
 this is what you need to delete 
 
