@@ -1,0 +1,880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://rixlux.github.io/scriptHelper/AdditionalInfo/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../AdditionalInfo2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>AdditionalInfo - scriptHelper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#before" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="scriptHelper Documentation" class="md-header__button md-logo" aria-label="scriptHelper Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            scriptHelper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AdditionalInfo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/RixLux/scriptHelper" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RixLux/scriptHelper
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AdditionalInfo
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../AdditionalInfo2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AdditionalInfo2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sunshine-setup/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sunshine Setup
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="scriptHelper Documentation" class="md-nav__button md-logo" aria-label="scriptHelper Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    scriptHelper Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/RixLux/scriptHelper" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RixLux/scriptHelper
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AdditionalInfo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AdditionalInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After :
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AdditionalInfo2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AdditionalInfo2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sunshine-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sunshine Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After :
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>AdditionalInfo</h1>
+
+<p>for Reference</p>
+<h3 id="before">Before :</h3>
+<p><img alt="before1.png" src="../Images/before1.png" />  </p>
+<p><img alt="before2.png" src="../Images/before2.png" />
+Here is the output shown in the image<br />
+<div class="highlight"><pre><span></span><code>awchan@bazzite:/var/home/awchan$ rpm-ostree kargs
+ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 firmware_class.path=/usr/local/lib/firmware drm.edid_firmware=HDMI-A-1:edid.bin video=HDMI-A-1:e kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+awchan@bazzite:/var/home/awchan$ cat /proc/cmdline
+BOOT_IMAGE=(hd0,gpt2)/ostree/default-05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/vmlinuz-6.17.7-ba25.fc43.x86_64 ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+awchan@bazzite:/var/home/awchan$ for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n &quot;${con#*/card?-}: &quot;; cat $p; done
+eDP-1: connected
+HDMI-A-1: disconnected
+awchan@bazzite:/var/home/awchan$ ls -alh /usr/local/lib/firmware/edid.bin -rw-r--r--. 1 awchan awchan 256 Jan  2 22:15 /usr/local/lib/firmware/edid.bin
+awchan@bazzite:/var/home/awchan$ sudo dmesg | grep amdgpu[sudo] password for awchan:
+[    5.939151] [drm] amdgpu kernel modesetting enabled.
+[    5.942876] amdgpu: Virtual CRAT table created for CPU
+[    5.942897] amdgpu: Topology: Add CPU node
+[    5.943064] amdgpu 0000:03:00.0: enabling device (0006 -&gt; 0007)
+[    5.943125] amdgpu 0000:03:00.0: amdgpu: initializing kernel modesetting (RENOIR 0x1002:0x164C 0x17AA:0x3F95 0xC1).
+[    5.943279] amdgpu 0000:03:00.0: amdgpu: register mmio base: 0xFD400000
+[    5.943281] amdgpu 0000:03:00.0: amdgpu: register mmio size: 524288
+[    5.946606] amdgpu 0000:03:00.0: amdgpu: detected ip block number 0 &lt;soc15_common&gt;
+[    5.946611] amdgpu 0000:03:00.0: amdgpu: detected ip block number 1 &lt;gmc_v9_0&gt;
+[    5.946613] amdgpu 0000:03:00.0: amdgpu: detected ip block number 2 &lt;vega10_ih&gt;
+[    5.946615] amdgpu 0000:03:00.0: amdgpu: detected ip block number 3 &lt;psp&gt;
+[    5.946618] amdgpu 0000:03:00.0: amdgpu: detected ip block number 4 &lt;smu&gt;
+[    5.946621] amdgpu 0000:03:00.0: amdgpu: detected ip block number 5 &lt;dm&gt;
+[    5.946623] amdgpu 0000:03:00.0: amdgpu: detected ip block number 6 &lt;gfx_v9_0&gt;
+[    5.946625] amdgpu 0000:03:00.0: amdgpu: detected ip block number 7 &lt;sdma_v4_0&gt;
+[    5.946628] amdgpu 0000:03:00.0: amdgpu: detected ip block number 8 &lt;vcn_v2_0&gt;
+[    5.946630] amdgpu 0000:03:00.0: amdgpu: detected ip block number 9 &lt;jpeg_v2_0&gt;
+[    5.946646] amdgpu 0000:03:00.0: amdgpu: Fetched VBIOS from VFCT
+[    5.946650] amdgpu: ATOM BIOS: 113-LUCIENNE-016
+[    6.015637] amdgpu 0000:03:00.0: vgaarb: deactivate vga console
+[    6.015646] amdgpu 0000:03:00.0: amdgpu: Trusted Memory Zone (TMZ) feature enabled
+[    6.015652] amdgpu 0000:03:00.0: amdgpu: MODE2 reset
+[    6.015721] amdgpu 0000:03:00.0: amdgpu: vm size is 262144 GB, 4 levels, block size is 9-bit, fragment size is 9-bit
+[    6.015733] amdgpu 0000:03:00.0: amdgpu: VRAM: 2048M 0x000000F400000000 - 0x000000F47FFFFFFF (2048M used)
+[    6.015738] amdgpu 0000:03:00.0: amdgpu: GART: 1024M 0x0000000000000000 - 0x000000003FFFFFFF
+[    6.016019] amdgpu 0000:03:00.0: amdgpu: amdgpu: 2048M of VRAM memory ready
+[    6.016024] amdgpu 0000:03:00.0: amdgpu: amdgpu: 4886M of GTT memory ready.
+[    6.016890] amdgpu 0000:03:00.0: amdgpu: [drm] Loading DMUB firmware via PSP: version=0x0101002B
+[    6.017901] amdgpu 0000:03:00.0: amdgpu: Found VCN firmware Version ENC: 1.24 DEC: 8 VEP: 0 Revision: 9
+[    6.018977] amdgpu 0000:03:00.0: amdgpu: reserve 0x400000 from 0xf47f800000 for PSP TMR
+[    6.106827] amdgpu 0000:03:00.0: amdgpu: RAS: optional ras ta ucode is not available
+[    6.118384] amdgpu 0000:03:00.0: amdgpu: RAP: optional rap ta ucode is not available
+[    6.124492] amdgpu 0000:03:00.0: amdgpu: psp gfx command LOAD_TA(0x1) failed and response status is (0x7)
+[    6.124677] amdgpu 0000:03:00.0: amdgpu: SMU is initialized successfully!
+[    6.126568] amdgpu 0000:03:00.0: amdgpu: [drm] Display Core v3.2.340 initialized on DCN 2.1
+[    6.126575] amdgpu 0000:03:00.0: amdgpu: [drm] DP-HDMI FRL PCON supported
+[    6.127136] amdgpu 0000:03:00.0: amdgpu: [drm] DMUB hardware initialized: version=0x0101002B
+[    6.297486] amdgpu 0000:03:00.0: amdgpu: [drm] Using ACPI provided EDID for eDP-1
+[    6.302140] amdgpu 0000:03:00.0: amdgpu: kiq ring mec 2 pipe 1 q 0
+[    6.309030] kfd kfd: amdgpu: Allocated 3969056 bytes on gart
+[    6.309050] kfd kfd: amdgpu: Total number of KFD nodes to be created: 1
+[    6.309269] amdgpu: Virtual CRAT table created for GPU
+[    6.309867] amdgpu: Topology: Add dGPU node [0x164c:0x1002]
+[    6.309871] kfd kfd: amdgpu: added device 1002:164c
+[    6.309944] amdgpu 0000:03:00.0: amdgpu: SE 1, SH per SE 1, CU per SH 8, active_cu_number 8
+[    6.309950] amdgpu 0000:03:00.0: amdgpu: ring gfx uses VM inv eng 0 on hub 0
+[    6.309954] amdgpu 0000:03:00.0: amdgpu: ring comp_1.0.0 uses VM inv eng 1 on hub 0
+[    6.309957] amdgpu 0000:03:00.0: amdgpu: ring comp_1.1.0 uses VM inv eng 4 on hub 0
+[    6.309961] amdgpu 0000:03:00.0: amdgpu: ring comp_1.2.0 uses VM inv eng 5 on hub 0
+[    6.309964] amdgpu 0000:03:00.0: amdgpu: ring comp_1.3.0 uses VM inv eng 6 on hub 0
+[    6.309967] amdgpu 0000:03:00.0: amdgpu: ring comp_1.0.1 uses VM inv eng 7 on hub 0
+[    6.309970] amdgpu 0000:03:00.0: amdgpu: ring comp_1.1.1 uses VM inv eng 8 on hub 0
+[    6.309973] amdgpu 0000:03:00.0: amdgpu: ring comp_1.2.1 uses VM inv eng 9 on hub 0
+[    6.309976] amdgpu 0000:03:00.0: amdgpu: ring comp_1.3.1 uses VM inv eng 10 on hub 0
+[    6.309980] amdgpu 0000:03:00.0: amdgpu: ring kiq_0.2.1.0 uses VM inv eng 11 on hub 0
+[    6.309983] amdgpu 0000:03:00.0: amdgpu: ring sdma0 uses VM inv eng 0 on hub 8
+[    6.309986] amdgpu 0000:03:00.0: amdgpu: ring vcn_dec uses VM inv eng 1 on hub 8
+[    6.309989] amdgpu 0000:03:00.0: amdgpu: ring vcn_enc0 uses VM inv eng 4 on hub 8
+[    6.309992] amdgpu 0000:03:00.0: amdgpu: ring vcn_enc1 uses VM inv eng 5 on hub 8
+[    6.309995] amdgpu 0000:03:00.0: amdgpu: ring jpeg_dec uses VM inv eng 6 on hub 8
+[    6.311118] amdgpu 0000:03:00.0: amdgpu: Runtime PM not available
+[    6.311778] amdgpu 0000:03:00.0: amdgpu: [drm] Using custom brightness curve
+[    6.312150] amdgpu 0000:03:00.0: [drm] Registered 4 planes with drm panic
+[    6.312153] [drm] Initialized amdgpu 3.64.0 for 0000:03:00.0 on minor 1
+[    6.315881] fbcon: amdgpudrmfb (fb0) is primary device
+[    6.315892] amdgpu 0000:03:00.0: [drm] fb0: amdgpudrmfb frame buffer device
+[    9.582256] snd_hda_intel 0000:03:00.1: bound 0000:03:00.0 (ops amdgpu_dm_audio_component_bind_ops [amdgpu])
+</code></pre></div></p>
+<h3 id="after">After :</h3>
+<p><img alt="after1.png" src="../Images/after1.png" />  </p>
+<p><img alt="after2.png" src="../Images/after2.png" />
+Here is the output that shown in the image :</p>
+<div class="highlight"><pre><span></span><code>awchan@bazzite:/var/home/awchan$ rpm-ostree kargs
+ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 firmware_class.path=/usr/local/lib/firmware drm.edid_firmware=HDMI-A-1:edid.bin video=HDMI-A-1:e kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+awchan@bazzite:/var/home/awchan$ cat /proc/cmdline
+BOOT_IMAGE=(hd0,gpt2)/ostree/default-05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/vmlinuz-6.17.7-ba25.fc43.x86_64 ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 firmware_class.path=/usr/local/lib/firmware drm.edid_firmware=HDMI-A-1:edid.bin video=HDMI-A-1:e kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+awchan@bazzite:/var/home/awchan$ for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n &quot;${con#*/card?-}: &quot;; cat $p; done
+eDP-1: connected
+HDMI-A-1: connected
+awchan@bazzite:/var/home/awchan$ ls -alh /usr/local/lib/firmware/edid.bin
+-rw-r--r--. 1 awchan awchan 256 Jan  2 22:15 /usr/local/lib/firmware/edid.bin
+awchan@bazzite:/var/home/awchan$ sudo dmesg | grep amdgpu
+[sudo] password for awchan:
+[    5.691884] [drm] amdgpu kernel modesetting enabled.
+[    5.696017] amdgpu: Virtual CRAT table created for CPU
+[    5.696037] amdgpu: Topology: Add CPU node
+[    5.696194] amdgpu 0000:03:00.0: enabling device (0006 -&gt; 0007)
+[    5.696261] amdgpu 0000:03:00.0: amdgpu: initializing kernel modesetting (RENOIR 0x1002:0x164C 0x17AA:0x3F95 0xC1).
+[    5.696437] amdgpu 0000:03:00.0: amdgpu: register mmio base: 0xFD400000
+[    5.696439] amdgpu 0000:03:00.0: amdgpu: register mmio size: 524288
+[    5.699762] amdgpu 0000:03:00.0: amdgpu: detected ip block number 0 &lt;soc15_common&gt;
+[    5.699766] amdgpu 0000:03:00.0: amdgpu: detected ip block number 1 &lt;gmc_v9_0&gt;
+[    5.699769] amdgpu 0000:03:00.0: amdgpu: detected ip block number 2 &lt;vega10_ih&gt;
+[    5.699771] amdgpu 0000:03:00.0: amdgpu: detected ip block number 3 &lt;psp&gt;
+[    5.699774] amdgpu 0000:03:00.0: amdgpu: detected ip block number 4 &lt;smu&gt;
+[    5.699776] amdgpu 0000:03:00.0: amdgpu: detected ip block number 5 &lt;dm&gt;
+[    5.699778] amdgpu 0000:03:00.0: amdgpu: detected ip block number 6 &lt;gfx_v9_0&gt;
+[    5.699781] amdgpu 0000:03:00.0: amdgpu: detected ip block number 7 &lt;sdma_v4_0&gt;
+[    5.699783] amdgpu 0000:03:00.0: amdgpu: detected ip block number 8 &lt;vcn_v2_0&gt;
+[    5.699785] amdgpu 0000:03:00.0: amdgpu: detected ip block number 9 &lt;jpeg_v2_0&gt;
+[    5.699803] amdgpu 0000:03:00.0: amdgpu: Fetched VBIOS from VFCT
+[    5.699807] amdgpu: ATOM BIOS: 113-LUCIENNE-016
+[    5.773393] amdgpu 0000:03:00.0: vgaarb: deactivate vga console
+[    5.773422] amdgpu 0000:03:00.0: amdgpu: Trusted Memory Zone (TMZ) feature enabled
+[    5.773427] amdgpu 0000:03:00.0: amdgpu: MODE2 reset
+[    5.773924] amdgpu 0000:03:00.0: amdgpu: vm size is 262144 GB, 4 levels, block size is 9-bit, fragment size is 9-bit
+[    5.773937] amdgpu 0000:03:00.0: amdgpu: VRAM: 2048M 0x000000F400000000 - 0x000000F47FFFFFFF (2048M used)
+[    5.773942] amdgpu 0000:03:00.0: amdgpu: GART: 1024M 0x0000000000000000 - 0x000000003FFFFFFF
+[    5.774290] amdgpu 0000:03:00.0: amdgpu: amdgpu: 2048M of VRAM memory ready
+[    5.774296] amdgpu 0000:03:00.0: amdgpu: amdgpu: 4886M of GTT memory ready.
+[    5.775235] amdgpu 0000:03:00.0: amdgpu: [drm] Loading DMUB firmware via PSP: version=0x0101002B
+[    5.776254] amdgpu 0000:03:00.0: amdgpu: Found VCN firmware Version ENC: 1.24 DEC: 8 VEP: 0 Revision: 9
+[    5.777350] amdgpu 0000:03:00.0: amdgpu: reserve 0x400000 from 0xf47f800000 for PSP TMR
+[    5.867634] amdgpu 0000:03:00.0: amdgpu: RAS: optional ras ta ucode is not available
+[    5.879217] amdgpu 0000:03:00.0: amdgpu: RAP: optional rap ta ucode is not available
+[    5.885413] amdgpu 0000:03:00.0: amdgpu: psp gfx command LOAD_TA(0x1) failed and response status is (0x7)
+[    5.886207] amdgpu 0000:03:00.0: amdgpu: SMU is initialized successfully!
+[    5.887701] amdgpu 0000:03:00.0: amdgpu: [drm] Display Core v3.2.340 initialized on DCN 2.1
+[    5.887707] amdgpu 0000:03:00.0: amdgpu: [drm] DP-HDMI FRL PCON supported
+[    5.888276] amdgpu 0000:03:00.0: amdgpu: [drm] DMUB hardware initialized: version=0x0101002B
+[    6.061434] amdgpu 0000:03:00.0: amdgpu: [drm] Using ACPI provided EDID for eDP-1
+[    6.064246] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.064251] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.068342] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* Failed to read EDID
+[    6.070784] amdgpu 0000:03:00.0: amdgpu: kiq ring mec 2 pipe 1 q 0
+[    6.079088] kfd kfd: amdgpu: Allocated 3969056 bytes on gart
+[    6.079107] kfd kfd: amdgpu: Total number of KFD nodes to be created: 1
+[    6.079438] amdgpu: Virtual CRAT table created for GPU
+[    6.079577] amdgpu: Topology: Add dGPU node [0x164c:0x1002]
+[    6.079580] kfd kfd: amdgpu: added device 1002:164c
+[    6.079593] amdgpu 0000:03:00.0: amdgpu: SE 1, SH per SE 1, CU per SH 8, active_cu_number 8
+[    6.079600] amdgpu 0000:03:00.0: amdgpu: ring gfx uses VM inv eng 0 on hub 0
+[    6.079604] amdgpu 0000:03:00.0: amdgpu: ring comp_1.0.0 uses VM inv eng 1 on hub 0
+[    6.079607] amdgpu 0000:03:00.0: amdgpu: ring comp_1.1.0 uses VM inv eng 4 on hub 0
+[    6.079610] amdgpu 0000:03:00.0: amdgpu: ring comp_1.2.0 uses VM inv eng 5 on hub 0
+[    6.079613] amdgpu 0000:03:00.0: amdgpu: ring comp_1.3.0 uses VM inv eng 6 on hub 0
+[    6.079616] amdgpu 0000:03:00.0: amdgpu: ring comp_1.0.1 uses VM inv eng 7 on hub 0
+[    6.079619] amdgpu 0000:03:00.0: amdgpu: ring comp_1.1.1 uses VM inv eng 8 on hub 0
+[    6.079622] amdgpu 0000:03:00.0: amdgpu: ring comp_1.2.1 uses VM inv eng 9 on hub 0
+[    6.079625] amdgpu 0000:03:00.0: amdgpu: ring comp_1.3.1 uses VM inv eng 10 on hub 0
+[    6.079628] amdgpu 0000:03:00.0: amdgpu: ring kiq_0.2.1.0 uses VM inv eng 11 on hub 0
+[    6.079632] amdgpu 0000:03:00.0: amdgpu: ring sdma0 uses VM inv eng 0 on hub 8
+[    6.079635] amdgpu 0000:03:00.0: amdgpu: ring vcn_dec uses VM inv eng 1 on hub 8
+[    6.079638] amdgpu 0000:03:00.0: amdgpu: ring vcn_enc0 uses VM inv eng 4 on hub 8
+[    6.079641] amdgpu 0000:03:00.0: amdgpu: ring vcn_enc1 uses VM inv eng 5 on hub 8
+[    6.079644] amdgpu 0000:03:00.0: amdgpu: ring jpeg_dec uses VM inv eng 6 on hub 8
+[    6.080874] amdgpu 0000:03:00.0: amdgpu: Runtime PM not available
+[    6.081472] amdgpu 0000:03:00.0: amdgpu: [drm] Using custom brightness curve
+[    6.081813] amdgpu 0000:03:00.0: [drm] Registered 4 planes with drm panic
+[    6.081817] [drm] Initialized amdgpu 3.64.0 for 0000:03:00.0 on minor 1
+[    6.084264] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.084270] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.088319] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    6.088374] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.088376] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.092433] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    6.092440] amdgpu 0000:03:00.0: amdgpu: [drm] Failed to setup vendor infoframe on connector HDMI-A-1: -22
+[    6.093974] fbcon: amdgpudrmfb (fb0) is primary device
+[    6.093983] amdgpu 0000:03:00.0: [drm] fb0: amdgpudrmfb frame buffer device
+[    6.236097] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.236103] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.240156] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    6.240207] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.240209] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.244270] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    9.664126] snd_hda_intel 0000:03:00.1: bound 0000:03:00.0 (ops amdgpu_dm_audio_component_bind_ops [amdgpu])
+</code></pre></div>
+<p>Here you can see that i remove these parameter upon this specific booting by manually editing it during grub</p>
+<div class="highlight"><pre><span></span><code>awchan@bazzite:/var/home/awchan$ rpm-ostree kargs
+ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 firmware_class.path=/usr/local/lib/firmware drm.edid_firmware=HDMI-A-1:edid.bin video=HDMI-A-1:e kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+awchan@bazzite:/var/home/awchan$ cat /proc/cmdline
+BOOT_IMAGE=(hd0,gpt2)/ostree/default-05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/vmlinuz-6.17.7-ba25.fc43.x86_64 ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+</code></pre></div>
+<p>you can see that on those current boot there is no argument for edid or whatever here.</p>
+<p>you can also see that it had no connection for HDMI-A-1</p>
+<div class="highlight"><pre><span></span><code>awchan@bazzite:/var/home/awchan$ for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n &quot;${con#*/card?-}: &quot;; cat $p; done
+eDP-1: connected
+HDMI-A-1: disconnected
+</code></pre></div>
+<p>but after rebooting,as you can see here that curent boot deployment had same parameter as the kargs and it say there is something connected on HDMI-A-1 .</p>
+<div class="highlight"><pre><span></span><code>awchan@bazzite:/var/home/awchan$ rpm-ostree kargs
+ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 firmware_class.path=/usr/local/lib/firmware drm.edid_firmware=HDMI-A-1:edid.bin video=HDMI-A-1:e kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+awchan@bazzite:/var/home/awchan$ cat /proc/cmdline
+BOOT_IMAGE=(hd0,gpt2)/ostree/default-05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/vmlinuz-6.17.7-ba25.fc43.x86_64 ostree=/ostree/boot.1/default/05fc0dfbdb338fd9409e8b309fb19a6950019b538d78a1ce5510815ac2ea9939/0 resume=UUID=2b6b9e44-3561-48b6-856a-b4ed43bd7fde rhgb quiet root=UUID=f990519c-d172-4949-8459-41c2c5a483ab vconsole.keymap=us rw bluetooth.disable_ertm=1 firmware_class.path=/usr/local/lib/firmware drm.edid_firmware=HDMI-A-1:edid.bin video=HDMI-A-1:e kvm.ignore_msrs=1 kvm.report_ignored_msrs=0
+
+awchan@bazzite:/var/home/awchan$ for p in /sys/class/drm/*/status; do con=${p%/status}; echo -n &quot;${con#*/card?-}: &quot;; cat $p; done
+eDP-1: connected
+HDMI-A-1: connected
+</code></pre></div>
+<p>and yeah although here it say it failed to find the related edid.bin , the OS itself manage to get the fake monitor show up on display configuration</p>
+<div class="highlight"><pre><span></span><code>[    6.080874] amdgpu 0000:03:00.0: amdgpu: Runtime PM not available
+[    6.081472] amdgpu 0000:03:00.0: amdgpu: [drm] Using custom brightness curve
+[    6.081813] amdgpu 0000:03:00.0: [drm] Registered 4 planes with drm panic
+[    6.081817] [drm] Initialized amdgpu 3.64.0 for 0000:03:00.0 on minor 1
+[    6.084264] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.084270] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.088319] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    6.088374] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.088376] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.092433] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    6.092440] amdgpu 0000:03:00.0: amdgpu: [drm] Failed to setup vendor infoframe on connector HDMI-A-1: -22
+[    6.093974] fbcon: amdgpudrmfb (fb0) is primary device
+[    6.093983] amdgpu 0000:03:00.0: [drm] fb0: amdgpudrmfb frame buffer device
+[    6.236097] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.236103] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.240156] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+[    6.240207] amdgpu 0000:03:00.0: Direct firmware load for edid.bin failed with error -2
+[    6.240209] amdgpu 0000:03:00.0: [drm] *ERROR* [CONNECTOR:122:HDMI-A-1] Requesting EDID firmware &quot;edid.bin&quot; failed (err=-2)
+[    6.244270] amdgpu 0000:03:00.0: amdgpu: [drm] *ERROR* No EDID found on connector: HDMI-A-1.
+</code></pre></div>
+<p>tbh i also check it on another laptop of mine to make sure everything and yeah the output from dmesg also said it cannot find the related whateveryounameedid.bin file and yet it work just fine.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
