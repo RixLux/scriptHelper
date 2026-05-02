@@ -34,9 +34,6 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-nav:
-  - Home: index.md
-
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -51,3 +48,9 @@ plugins:
 
 extra_css:
   - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - AdditionalInfo: AdditionalInfo.md
+  - AdditionalInfo2: AdditionalInfo2.md
+  - Sunshine Setup: sunshine-setup.md
