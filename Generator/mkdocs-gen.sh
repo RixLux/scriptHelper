@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "=== MkDocs YAML & Shortcut Generator ==="
 echo ""
@@ -14,7 +14,7 @@ if [ -n "$REMOTE_URL" ]; then
     REPO_FULL=$(echo "$REMOTE_URL" | sed -E 's|.*github.com[:/](.*)|\1|' | sed 's|.git$||')
     OWNER=$(echo "$REPO_FULL" | cut -d'/' -f1)
     REPO=$(echo "$REPO_FULL" | cut -d'/' -f2)
-    echo "Autodetected: $OWNER / $REPO"
+    echo "Git Remote detected: $OWNER / $REPO"
 else
     echo "Git repo not detected. Please enter manually:"
     printf "Repo owner (e.g. RixLux): "
@@ -31,17 +31,56 @@ SITE_URL="https://${OWNER_LC}.github.io/${REPO}/"
 REPO_NAME="${OWNER}/${REPO}"
 REPO_URL="https://github.com/${OWNER}/${REPO}"
 
+# ---- README Management ----
+README_FILE="README.md"
+DOCS_LINK="$SITE_URL"
+if [ -f "$README_FILE" ]; then
+    # Check if the documentation link already exists to avoid duplicates
+    if grep -q "$DOCS_LINK" "$README_FILE"; then
+        echo "Documentation badge already exists in $README_FILE."
+    else
+        echo "Adding Documentation badge to the top of $README_FILE..."
+
+        # Create a temporary file with the new header
+        cat <<EOF > readme_temp
+## Documentation
+
+<a href="$DOCS_LINK">
+    <img
+      src="https://img.shields.io/badge/Docs-4051B5?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white"
+      alt="Docs"
+    />
+</a>
+
+$(cat "$README_FILE")
+EOF
+        # Move temporary file to original README
+        mv readme_temp "$README_FILE"
+        echo "Successfully updated $README_FILE."
+    fi
+else
+    echo "README.md not found at root. Skipping badge injection."
+fi
+
 # ---- Generate nav from docs ----
 NAV_ITEMS=""
 
 if [ -d docs ]; then
-    # Using find and sort to build the navigation list
-    FILES=$(find docs -type f -name "*.md" | sort)
+    # 1. Force index.md to the top if it exists
+    if [ -f "docs/index.md" ]; then
+        # We use a literal newline inside the variable
+        NAV_ITEMS="
+  - Home: index.md"
+    fi
+
+    # 2. Add all other files alphabetically
+    FILES=$(find docs -type f -name "*.md" ! -name "index.md" | sort -V)
     for file in $FILES; do
         rel="${file#docs/}"
         name="$(basename "$file" .md)"
-        # Convert file-name to Title Case
         title=$(echo "$name" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')
+
+        # Append with a real newline
         NAV_ITEMS="$NAV_ITEMS
   - $title: $rel"
     done
@@ -88,8 +127,6 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-nav:$NAV_ITEMS
-
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -104,6 +141,8 @@ plugins:
 
 extra_css:
   - stylesheets/extra.css
+
+nav:$NAV_ITEMS
 EOF
 
 # ---- Generate CSS Template ----
@@ -139,23 +178,30 @@ echo ""
 echo "Creating shortcut files..."
 # Windows
 printf "[InternetShortcut]\r\nURL=$REPO_URL\r\n" > github.url
+
 # Linux
-echo "[Desktop Entry]\nName=GitHub Repo\nType=Link\nURL=$REPO_URL\nIcon=text-html" > github.desktop
+printf "[Desktop Entry]\nName=GitHub Repo\nType=Link\nURL=%s\nIcon=text-html\n" "$REPO_URL" > github.desktop
 chmod +x github.desktop
 # Text fallback
 echo "$REPO_URL" > github.txt
 
-# ----.gitignore Management ----
+# ---- .gitignore Management ----
 echo ""
+
+# Shortcut logic
 printf "Do you want to add these shortcuts to .gitignore? (y/n): "
 read -r IGNORE_CHOICE
 
+# MkDocs logic
+printf "Do you want to add MkDocs build files to .gitignore? (y/n): "
+read -r MKDOCS_CHOICE
+
+# Create .gitignore if it doesn't exist
+touch .gitignore
+
+# Process Shortcuts
 if [[ "$IGNORE_CHOICE" =~ ^[Yy]$ ]]; then
     FILES_TO_IGNORE=("github.url" "github.desktop" "github.txt")
-
-    # Create .gitignore if it doesn't exist
-    touch .gitignore
-
     for file in "${FILES_TO_IGNORE[@]}"; do
         if ! grep -qxF "$file" .gitignore; then
             echo "$file" >> .gitignore
@@ -164,9 +210,38 @@ if [[ "$IGNORE_CHOICE" =~ ^[Yy]$ ]]; then
             echo "$file is already ignored."
         fi
     done
-else
-    echo "Shortcuts left visible. You can now 'git add' them if you wish."
+fi
+
+# Process MkDocs
+if [[ "$MKDOCS_CHOICE" =~ ^[Yy]$ ]]; then
+    # Define patterns (removed the empty string from the array)
+    MK_PATTERNS=("# --- MkDocs ---" "site/" "*/__pycache__/" "*.pyc")
+
+    echo -e "\nConfiguring MkDocs ignores..."
+
+    if [[ -s .gitignore ]] && [[ $(tail -c 1 .gitignore) != $'\n' ]]; then
+        echo "" >> .gitignore
+    fi
+    echo "" >> .gitignore
+
+    for pattern in "${MK_PATTERNS[@]}"; do
+        if ! grep -qxF "$pattern" .gitignore; then
+            echo "$pattern" >> .gitignore
+            echo "Added $pattern to .gitignore"
+        else
+            echo "$pattern is already ignored."
+        fi
+    done
+fi
+
+if [[ ! "$IGNORE_CHOICE" =~ ^[Yy]$ ]] && [[ ! "$MKDOCS_CHOICE" =~ ^[Yy]$ ]]; then
+    echo "No changes made to .gitignore."
 fi
 
 echo "------------------------------------------"
-echo "Done! Clickable Link: \e]8;;$REPO_URL\e\\Open Repo\e]8;;\e\\"
+
+LINK_START="\e]8;;"
+LINK_END="\e]8;;\e\\\\"
+RESET="\e[0m"
+
+printf "Done! : ${LINK_START}%s\e\\\\%s${LINK_END}\n" "$REPO_URL" "Open Repo"

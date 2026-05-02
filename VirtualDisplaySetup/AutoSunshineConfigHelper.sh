@@ -145,7 +145,7 @@ done
 echo "----------------------------------------------------------"
 read -p "Restart Sunshine now to apply changes? (y/N): " RESTART
 if [[ "$RESTART" =~ ^[Yy]$ ]]; then
-    systemctl --user restart app-dev.lizardbyte.app.Sunshine.service
+    systemctl --user restart homebrew.sunshine
 
     echo "Sunshine restarted successfully!"
 else
