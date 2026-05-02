@@ -145,8 +145,7 @@ done
 echo "----------------------------------------------------------"
 read -p "Restart Sunshine now to apply changes? (y/N): " RESTART
 if [[ "$RESTART" =~ ^[Yy]$ ]]; then
-    systemctl --user restart homebrew.sunshine
-
+    systemctl --user restart homebrew.sunshine || systemctl --user restart homebrew.sunshine-beta
     echo "Sunshine restarted successfully!"
 else
     echo "Note: You will need to restart Sunshine for changes to take effect."
