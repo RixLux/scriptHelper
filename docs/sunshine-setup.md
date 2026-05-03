@@ -1,6 +1,10 @@
 # Virtual Display Setup 
 
-> **Important Since Sunshine is not preinstalled anymore you should read this doc to set it up first.**  
+> **Important**
+
+>**Since Sunshine is not preinstalled anymore you should read this doc to set it up first.**  
+> Even if you think it is already installed just follow the instruction from there to save your time.
+
 ```
 https://docs.bazzite.gg/Advanced/sunshine-brew/
 ```  

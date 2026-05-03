@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -e
+
+command -v jq >/dev/null 2>&1 || { echo >&2 "This script require 'jq' but it's not installed. Aborting."; exit 1; }
 
 SUNSHINE_APPS="$HOME/.config/sunshine/apps.json"
 
@@ -88,7 +89,7 @@ while true; do
     echo "  [n] Create New Profile"
     echo
 
-    read -p "Select index to update OR 'n' for new: " APP_CHOICE
+    read -p "Select index to update OR 'Any key' for new: " APP_CHOICE
 
     if [[ "$APP_CHOICE" =~ ^[0-9]+$ ]] && [[ "$APP_CHOICE" -lt "${#EXISTING_APPS[@]}" ]]; then
         APP_NAME="${EXISTING_APPS[$APP_CHOICE]}"
@@ -144,9 +145,18 @@ done
 # --- Final Restart Prompt ---
 echo "----------------------------------------------------------"
 read -p "Restart Sunshine now to apply changes? (y/N): " RESTART
+
 if [[ "$RESTART" =~ ^[Yy]$ ]]; then
-    systemctl --user restart homebrew.sunshine || systemctl --user restart homebrew.sunshine-beta
-    echo "Sunshine restarted successfully!"
+    ERROR_MSG=$(systemctl --user restart homebrew.sunshine 2>&1 >/dev/null) || ERROR_MSG2=$(systemctl --user restart homebrew.sunshine-bet 2>&1 >/dev/null)
+
+    if [ $? -eq 0 ]; then
+        echo "Sunshine restarted successfully!"
+    else
+        echo "Error: Both stable and beta services failed to restart."
+        echo "first error: $ERROR_MSG"
+        echo "second error: $ERROR_MSG2"
+        echo "Check this link : https://docs.bazzite.gg/Advanced/sunshine-brew/ for more detail because it seem you might have not set it up yet."
+    fi
 else
     echo "Note: You will need to restart Sunshine for changes to take effect."
 fi
