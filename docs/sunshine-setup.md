@@ -1,13 +1,111 @@
 # Virtual Display Setup 
 
-> **Important**
+## **Important**
 
 >**Since Sunshine is not preinstalled anymore you should read this doc to set it up first.**  
-> Even if you think it is already installed just follow the instruction from there to save your time.
 
 ```
 https://docs.bazzite.gg/Advanced/sunshine-brew/
 ```  
+
+## ISSUE
+
+### Black screen
+
+Shutdown from remote access would result in black screen upon booting,
+to solve it set this script as undo command if you wish.  
+[RS.sh](VirtualDisplaySetup/RS.sh)  
+```
+#!/bin/bash
+
+/usr/bin/kscreen-doctor \
+  output.eDP-1.enable \
+  output.HDMI-A-1.disable \
+  output.eDP-1.primary && shutdown now
+```
+
+OR alternatively you can put it on KDE Connect.
+
+by putting it on `./local/bin` and setting it up as an executable.  
+
+For example:
+```
+┬─[awchan@bazzite:/v/h/a/T/S/s/docs]─[17:08:52]─[G:main =]
+╰─>$ ls ~/.local/bin/
+chrome-shell*      ghl-gen*  marksman*            pip*      returnScreenAndShutdown*
+cleanup_filename*  kitten@   mkdocs-gen*          pip3*     steamcmd@
+envclean*          kitty@    npm-curdir-install*  pip3.14*
+┬─[awchan@bazzite:/v/h/a/T/S/s/docs]─[17:34:02]─[G:main =]
+╰─>$ cat ~/.local/bin/returnScreenAndShutdown 
+#!/bin/bash
+
+/usr/bin/kscreen-doctor \
+  output.eDP-1.enable \
+  output.HDMI-A-1.disable \
+  output.eDP-1.primary && shutdown +5
+```
+
+at home dir
+```bash
+kate scriptname.sh
+```
+
+then  
+```bash
+mv scriptname.sh ~/.local/bin/returnScreenAndShutdown 
+```
+
+set up as an executable
+```bash
+chmod +x ~/.local/bin/returnScreenAndShutdown 
+```
+
+now you can just add it to KDE Connect
+
+- Return Screen And Shutdown
+```bash
+returnScreenAndShutdown 
+```
+
+### Sunshine is going somewhere again
+
+Run this command:
+```
+brew unlink xkeyboard-config; brew link --overwrite xkeyboard-config
+```
+> you can also set this up on KDE Connect
+
+### I am too lazy to type it to terminal.
+
+Set it up on KDE Connect.
+
+![Kde connect command](Images/KDE_Connect-Command.png)
+
+list of useful command:
+
+- Switch to Real Screen
+```bash
+/usr/bin/kscreen-doctor output.eDP-1.enable  output.HDMI-A-1.disable output.eDP-1.scale.1.0 output.eDP-1.primary 
+```
+
+- Switch to Virtual Screen
+```bash
+/usr/bin/kscreen-doctor output.eDP-1.disable  output.HDMI-A-1.enable   output.HDMI-A-1.scale.1.0 output.HDMI-A-1.primary 
+```
+
+- start sunshine
+```bash
+systemctl --user start homebrew.sunshine
+```
+
+- stop sunshine
+```bash
+systemctl --user stop homebrew.sunshine
+```
+
+I hope nothing break again this time:).  
+
+---
 
 Inspiration that made me do this:  
 
@@ -161,7 +259,9 @@ sudo rpm-ostree kargs --append-if-missing="firmware_class.path=/usr/local/lib/fi
 ```
 
 > replace `HDMI-A-1` with your available disconnected port and `edid.bin` with your actual edid file name.  
+
 ---
+
 
 ### 5. Reboot the System
 
@@ -347,17 +447,3 @@ https://github.com/ClassicOldSong/moonlight-android/releases
 [Artemis (Android Only)](https://github.com/ClassicOldSong/moonlight-android/releases)
 
 ---
-
-## ISSUE
-
-Shutdown from remote access would result in black screen upon booting,
-to solve it set this script as undo command if you wish or put in as command on kde connect by copying the content of the script as command.  
-[RS.sh](VirtualDisplaySetup/RS.sh)  
-```
-#!/bin/bash
-
-/usr/bin/kscreen-doctor \
-  output.eDP-1.enable \
-  output.HDMI-A-1.disable \
-  output.eDP-1.primary && shutdown now
-```

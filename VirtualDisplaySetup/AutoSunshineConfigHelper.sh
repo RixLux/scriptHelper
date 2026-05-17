@@ -5,19 +5,22 @@ command -v jq >/dev/null 2>&1 || { echo >&2 "This script require 'jq' but it's n
 SUNSHINE_APPS="$HOME/.config/sunshine/apps.json"
 
 # --- Visual Banner ---
+print_banner() {
+    local text="$1"
+
+    if command -v figlet >/dev/null 2>&1 && command -v lolcat >/dev/null 2>&1; then
+        figlet "$text" | lolcat -a
+    elif command -v figlet >/dev/null 2>&1; then
+        figlet "$text"
+    else
+        # Fallback to plain text if tools are missing
+        echo "=== $text ==="
+    fi
+}
 clear
 echo "=========================================================="
-echo "  ____                _     _             "
-echo " / ___| _   _ _ __  _| |__ (_)_ __   ___  "
-echo " \___ \| | | | '_ \| __| '_ \| | '_ \ / _ \ "
-echo "  ___) | |_| | | | | |_| | | | | | | |  __/ "
-echo " |____/ \__,_|_| |_|\__|_| |_|_|_| |_|\___| "
-echo "  ____             _____ _         _   _      "
-echo " / ___|___  _ __  |  ___(_) __ _  | | | | ___ | |_ __   ___ _ __ "
-echo "| |   / _ \| '_ \ | |_  | |/ _\` | | |_| |/ _ \| | '_ \ / _ \ '__|"
-echo "| |__| (_) | | | ||  _| | | (_| | |  _  |  __/| | |_) |  __/ |   "
-echo " \____\___/|_| |_||_|   |_|\__, | |_| |_|\___||_|_.__/ \___|_|   "
-echo "                           |___/                                 "
+print_banner "Sunshine"
+print_banner "Config"
 echo "=========================================================="
 echo "                  Simplify --- Config                    "
 echo "=========================================================="
@@ -69,62 +72,82 @@ if [[ ! -f "$SUNSHINE_APPS" ]]; then
     exit 1
 fi
 
-echo "Detecting displays..."
-mapfile -t OUTPUTS < <(kscreen-doctor -o | awk '/Output:/ {print $3}')
-
 # --- Profile Creation Loop ---
 while true; do
     echo "----------------------------------------------------------"
-    echo "-- CURRENT DISPLAYS DETECTED:"
+    echo "Detecting displays..."
+    mapfile -t OUTPUTS < <(kscreen-doctor -o | awk '/Output:/ {print $3}')
     for i in "${!OUTPUTS[@]}"; do echo "  [$i] ${OUTPUTS[$i]}"; done
     echo
 
-    # DETECT EXISTING APPS
     mapfile -t EXISTING_APPS < <(jq -r '.apps[].name' "$SUNSHINE_APPS")
 
-    echo "EXISTING SUNSHINE PROFILE:"
-    for i in "${!EXISTING_APPS[@]}"; do
-        echo "  [$i] ${EXISTING_APPS[$i]}"
-    done
+    echo "EXISTING PROFILES:"
+    for i in "${!EXISTING_APPS[@]}"; do echo "  [$i] ${EXISTING_APPS[$i]}"; done
     echo "  [n] Create New Profile"
     echo
+    read -p "Selection: " APP_CHOICE
 
-    read -p "Select index to update OR 'Any key' for new: " APP_CHOICE
+    # Reset variables
+    CURRENT_IMG=""
+    PREV_VIRT=""
+    PREV_PRI=""
+    PREV_SCALE=""
 
     if [[ "$APP_CHOICE" =~ ^[0-9]+$ ]] && [[ "$APP_CHOICE" -lt "${#EXISTING_APPS[@]}" ]]; then
         APP_NAME="${EXISTING_APPS[$APP_CHOICE]}"
-        echo "Updating: $APP_NAME"
+        echo "Editing: $APP_NAME"
+
+        # 1. Fetch existing Image
+        CURRENT_IMG=$(jq -r ".apps[$APP_CHOICE][\"image-path\"]" "$SUNSHINE_APPS")
+
+        # 2. Fetch existing DO command to extract old display names
+        EXISTING_DO=$(jq -r ".apps[$APP_CHOICE][\"prep-cmd\"][0].do" "$SUNSHINE_APPS")
+
+        # Extract Display Names using regex/sed from the command string
+        # Logic: find 'output.NAME.disable' and 'output.NAME.enable'
+        PREV_PRI=$(echo "$EXISTING_DO" | sed -n 's/.*output\.\([^ ]*\)\.disable.*/\1/p')
+        PREV_VIRT=$(echo "$EXISTING_DO" | sed -n 's/.*output\.\([^ ]*\)\.enable.*/\1/p')
+        PREV_SCALE=$(echo "$EXISTING_DO" | sed -n 's/.*scale\.\([0-9.]*\).*/\1/p')
     else
-        read -p "Enter new Profile Name: " NEW_NAME
-        APP_NAME="${NEW_NAME:-Desktop (Custom)}"
+        read -p "Enter new Profile Name: " APP_NAME
+        APP_NAME="${APP_NAME:-Desktop (Custom)}"
     fi
 
-    # DRAG & DROP SECTION
-    while true; do
-        echo "Drag and drop the image into the terminal (or type path):"
-        read -r RAW_IMG_PATH
-        APP_IMG=$(clean_path "$RAW_IMG_PATH")
-        APP_IMG="${APP_IMG:-desktop.png}"
+    # --- IMAGE PATH ---
+    echo "Current Image: ${CURRENT_IMG:-None}"
+    read -p "New Image (Drag & Drop or Enter to keep): " RAW_IMG_PATH
+    APP_IMG=$(clean_path "$RAW_IMG_PATH")
+    APP_IMG="${APP_IMG:-$CURRENT_IMG}"
+    APP_IMG="${APP_IMG:-desktop.png}" # Absolute fallback
 
-        if [[ "$APP_IMG" == *.png ]] || [[ "$APP_IMG" == *.jpg ]]; then
-             if [[ "$APP_IMG" == */* ]] && [[ ! -f "$APP_IMG" ]]; then
-                echo "File not found at: $APP_IMG. Try again."
-                continue
-             fi
-        fi
-        break
-    done
+    # --- DISPLAY SELECTION ---
+    echo "--- Select VIRTUAL display ---"
+    [[ -n "$PREV_VIRT" ]] && echo "Current: $PREV_VIRT"
+    read -p "Index (Enter to keep current): " VIRT_IDX
+    if [[ -z "$VIRT_IDX" ]]; then
+        VIRTUAL="$PREV_VIRT"
+    else
+        VIRTUAL="${OUTPUTS[$VIRT_IDX]}"
+    fi
 
-    echo
-    read -p "Select VIRTUAL display index: " VIRT_IDX
-    VIRTUAL="${OUTPUTS[$VIRT_IDX]}"
+    echo "--- Select PRIMARY display (to disable) ---"
+    [[ -n "$PREV_PRI" ]] && echo "Current: $PREV_PRI"
+    read -p "Index (Enter to keep current): " PRI_IDX
+    if [[ -z "$PRI_IDX" ]]; then
+        PRIMARY="$PREV_PRI"
+    else
+        PRIMARY="${OUTPUTS[$PRI_IDX]}"
+    fi
 
-    read -p "Select PRIMARY display index: " PRI_IDX
-    PRIMARY="${OUTPUTS[$PRI_IDX]}"
+    # Check if there is still an empty variables (for new profiles)
+    if [[ -z "$VIRTUAL" || -z "$PRIMARY" ]]; then
+        echo "Error: You must select displays for a new profile!"
+        continue
+    fi
 
-    read -p "Scale (e.g. 1.25, 1.5 or leave blank): " SCALE
-
-
+    read -p "Scale [Current: ${PREV_SCALE:-1}]: " SCALE
+    SCALE="${SCALE:-$PREV_SCALE}"
 
     # Build commands
     DO_CMD="/usr/bin/kscreen-doctor output.$PRIMARY.disable output.$VIRTUAL.enable"
@@ -138,7 +161,7 @@ while true; do
     echo "Success! Added/Updated: $APP_NAME"
     echo
 
-    read -p "Add another profile? (y/N): " AGAIN
+    read -p "Add/Edit another? (y/N): " AGAIN
     [[ "$AGAIN" =~ ^[Yy]$ ]] || break
 done
 
